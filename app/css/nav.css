@@ -1,0 +1,47 @@
+#controls{
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	background-color: #FFC107;
+    color: white;
+}
+
+.nav{
+	display: flex;
+	flex-direction: row;
+}
+
+.nav > div{
+	padding: 10px;
+	justify-content: center;
+	align-items: center;
+}
+
+.nav > div > span > i{
+	font-size: 19px;
+}
+
+.sidebar{
+	display: none;
+	padding: 20px;
+	height: calc(100% - 40px);
+	z-index: 4;
+	position: absolute;
+	background-color: rgba(255,255,255,0.8);
+	width: 200px;
+	top: 0;
+	overflow: auto;
+}
+
+#left-side{
+	left: 0;
+}
+
+#right-side{
+	right: 0;
+}
+
+.sidebar h6{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}

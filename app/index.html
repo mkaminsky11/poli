@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>poli</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/material.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/nav.css">
+  </head>
+  <body>
+  <!--
+  -->
+    <div id="main">
+
+    	<div id="controls">
+            <div id="nav-left" class="nav">
+                <div onclick="showLoad()">
+                    <span><i class="material-icons">add</i></span>
+                </div>
+                <div onclick="toggleSide('left')">
+                    <span><i class="material-icons">file_download</i></span>
+                </div>
+                <div>
+
+                </div>
+            </div>
+
+            <div style="flex:1"></div>
+
+            <div id="nav-right" class="nav">
+                <div onclick="toggleSide('right')">
+                    <span><i class="material-icons">settings_input_component</i></span>
+                </div>
+
+                <div>
+                    <span><i class="material-icons">settings</i></span>
+                </div>
+            </div>
+
+    	</div>
+    	<div id="container">
+
+
+            <div class="sidebar shadow" id="left-side">
+                <h3>EXPORT</h3>
+
+                <select id="export-scaling" class="select">
+                    <option value="1" selected="">1x</option>
+                    <option value="2">2x</option>
+                    <option value="3">3x</option>
+                    <option value="4">4x</option>
+                    <option value="5">5x</option>
+                    <option value="6">6x</option>
+                    <option value="7">7x</option>
+                </select>
+
+                <div class="flex">
+                    <button onclick="exportImg('image/png')" class="btn shadow">PNG</button>
+                    <button onclick="exportImg('image/jpeg')" class="btn shadow">JPEG</button>
+                </div>
+
+                <br/>
+
+                <div id="export-status" style="display:none">
+                    <h6>Exporting...</h6>
+                    <div class="progress-bar">
+                        <div style="width:20%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar shadow" id="right-side">
+                    <div class="flex">
+                        <h4>Show vertices</h4>
+                        <input type="checkbox" checked id="show-verts" onchange="changeShowVerts()">
+                    </div>
+
+                    <h4>Number of vertices</h4>
+                    <input type="text" value="10000" id="num-verts" onchange="changeNumVerts()">
+            </div>
+
+
+
+
+    		<!--
+    		zoom buttons
+    		pan...
+    		-->
+
+
+
+    		<div id="image-canvas-div">
+	    		<canvas id="image-canvas"></canvas>
+	    	</div>
+	    	<div id="tri-canvas-div">
+	    		<svg xmlns="http://www.w3.org/2000/svg" id="tri-canvas"></svg>
+	    	</div>
+
+            <div id="zoom-bar">
+                <div onclick="zoomIn()">
+                    <span>
+                        <i class="material-icons">zoom_in</i>
+                    </span>
+                </div>
+                <div onclick="zoomOut()">
+                    <span>
+                        <i class="material-icons">zoom_out</i>
+                    </span>
+                </div>
+            </div>
+	    </div>
+    </div>
+
+    <canvas id="canvas" style="display:none"></canvas>
+
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script src="js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.ui.min.js"></script>
+
+    <script>if (window.module) module = window.module;</script>
+
+    <script type="text/javascript" src="js/delaunay.js"></script>
+    <script type="text/javascript" src="js/poly.js"></script>
+    <script type="text/javascript" src="js/ops.js"></script>
+    <script type="text/javascript" src="js/panzoom.js"></script>
+    <script type="text/javascript" src="js/visual.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+  </body>
+</html>
