@@ -1,10 +1,10 @@
-
-const {dialog} = require('electron').remote
-var nativeImage = require('electron').nativeImage
+const {dialog} = require('electron').remote;
+var nativeImage = require('electron').nativeImage;
 
 var ops = {
 	showVerts: true,
-	numVerts: 10000
+	numVerts: 10000,
+	selectedVerts: []
 };
 
 function changeShowVerts(){
@@ -36,14 +36,6 @@ function exportImg(mime){
 	if(mime === "image/png" || mime === "image/jpeg"){
 		$("#export-status").css("display","block");
 		setExportStatus("Initializing...",10);
-
-		var title = "export";
-		if(mime === "image/png"){
-			title += ".png";
-		}
-		else{
-			title += ".jpeg";
-		}
 		var expScale = parseInt($("#export-scaling").val());
 		triCanCopy = triCan.cloneNode(true);
 		var w = parseInt(triCanCopy.getAttribute("width")) * expScale;
@@ -77,16 +69,13 @@ function exportImg(mime){
 		    	nimg = nimg.toJpeg(100);
 		    }
 
-		    var path = dialog.showSaveDialog({
-		    	title: title
-		    });
+		    var path = dialog.showSaveDialog();
 			if(typeof(path) !== typeof(undefined)){
 
 				setExportStatus("Writing...",80);
 
 				fs.writeFile(path, nimg, function (err) {
-					// TODO: error handling
-
+					// TODO: more obvious error handling
 					if(err){
 						setExportStatus("An Error Occurred",100);
 					}
@@ -122,4 +111,8 @@ function showLoad(){
 			init();
 		});
 	}
+}
+
+function resetOps(){
+	ops.selectedVerts = [];
 }
