@@ -35,15 +35,22 @@
 
             <div id="nav-right" class="nav">
                 <div onclick="toggleSide('right')">
-                    <span><i class="material-icons">settings_input_component</i></span>
+                    <span><i class="material-icons">settings</i></span>
                 </div>
 
                 <div>
-                    <span><i class="material-icons">settings</i></span>
+                    <span><i class="material-icons">help</i></span>
                 </div>
             </div>
 
     	</div>
+        <div id="verts">
+            <h6 id="num-verts"><span>0</span> vertexes selected</h6>
+            <div style="flex:1"></div>
+            <button class="btn" onclick="deselectAll()">DESELECT</button>
+            <button class="btn" onclick="removeSelectedVerts()">REMOVE SELECTED</button>
+            <button class="btn btn-danger" onclick="removeAllVerts()">CLEAR ALL</button>
+        </div>
     	<div id="container">
 
 
@@ -76,13 +83,13 @@
             </div>
 
             <div class="sidebar shadow" id="right-side">
-                    <div class="flex">
-                        <h4>Show vertices</h4>
-                        <input type="checkbox" checked id="show-verts" onchange="changeShowVerts()">
-                    </div>
+                <div class="flex">
+                    <h4>Show vertices</h4>
+                    <input type="checkbox" checked id="show-verts" onchange="changeShowVerts()">
+                </div>
 
-                    <h4>Number of vertices</h4>
-                    <input type="text" value="10000" id="num-verts" onchange="changeNumVerts()">
+                <h4>Number of vertices</h4>
+                <input type="text" value="10000" id="num-verts" onchange="changeNumVerts()">
             </div>
 
 
@@ -99,7 +106,9 @@
 	    		<canvas id="image-canvas"></canvas>
 	    	</div>
 	    	<div id="tri-canvas-div">
-	    		<svg xmlns="http://www.w3.org/2000/svg" id="tri-canvas"></svg>
+	    		<svg xmlns="http://www.w3.org/2000/svg" id="tri-canvas">
+                    <rect x="0" y="0" width="0" height="0" opacity="0" id="tri-canvas-bg"/>         
+                </svg>
 	    	</div>
 
             <div id="zoom-bar">
@@ -130,6 +139,7 @@
     <script type="text/javascript" src="js/poly.js"></script>
     <script type="text/javascript" src="js/ops.js"></script>
     <script type="text/javascript" src="js/panzoom.js"></script>
+    <script type="text/javascript" src="js/verts.js"></script>
     <script type="text/javascript" src="js/visual.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
   </body>

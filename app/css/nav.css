@@ -45,3 +45,29 @@
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
+
+#verts{
+	padding: 5px;
+    display: flex;
+    align-items: center;
+    background-color: #313131;
+    color: white;
+}
+
+#verts h6{
+	margin: 0;
+    font-weight: 400;
+    font-size: 12px;
+    margin-left: 20px;
+}
+
+#verts i{
+	font-size: 17px;
+}
+
+#verts .btn{
+	font-size: 10px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	margin-right: 5px;
+}
