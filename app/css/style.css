@@ -13,11 +13,21 @@ html, body {
     overflow: hidden;
 }
 
-#container{
+#contents{
 	flex: 1;
 	width: 100%;
 	position: relative;
 	overflow: auto;
+	display: flex;
+	flex-direction: row;
+}
+
+#container{
+	flex: 1;
+	height: 100%;
+	position: relative;
+	overflow: auto;
+
 }
 
 #image-canvas-div, #tri-canvas-div{

@@ -34,16 +34,13 @@
             <div style="flex:1"></div>
 
             <div id="nav-right" class="nav">
-                <div onclick="toggleSide('right')">
-                    <span><i class="material-icons">settings</i></span>
-                </div>
-
                 <div>
                     <span><i class="material-icons">help</i></span>
                 </div>
             </div>
 
     	</div>
+
         <div id="verts">
             <h6 id="num-verts"><span>0</span> vertexes selected</h6>
             <div style="flex:1"></div>
@@ -51,38 +48,64 @@
             <button class="btn" onclick="removeSelectedVerts()">REMOVE SELECTED</button>
             <button class="btn btn-danger" onclick="removeAllVerts()">CLEAR ALL</button>
         </div>
-    	<div id="container">
 
+        <div id="contents">
 
-            <div class="sidebar shadow" id="left-side">
-                <h3>EXPORT</h3>
+        	<div id="container">
 
-                <select id="export-scaling" class="select">
-                    <option value="1" selected="">1x</option>
-                    <option value="2">2x</option>
-                    <option value="3">3x</option>
-                    <option value="4">4x</option>
-                    <option value="5">5x</option>
-                    <option value="6">6x</option>
-                    <option value="7">7x</option>
-                </select>
+                <div class="sidebar shadow" id="left-side">
+                    <h3>EXPORT</h3>
 
-                <div class="flex">
-                    <button onclick="exportImg('image/png')" class="btn shadow">PNG</button>
-                    <button onclick="exportImg('image/jpeg')" class="btn shadow">JPEG</button>
-                </div>
+                    <select id="export-scaling" class="select">
+                        <option value="1" selected="">1x</option>
+                        <option value="2">2x</option>
+                        <option value="3">3x</option>
+                        <option value="4">4x</option>
+                        <option value="5">5x</option>
+                        <option value="6">6x</option>
+                        <option value="7">7x</option>
+                    </select>
 
-                <br/>
+                    <div class="flex">
+                        <button onclick="exportImg('image/png')" class="btn shadow">PNG</button>
+                        <button onclick="exportImg('image/jpeg')" class="btn shadow">JPEG</button>
+                    </div>
 
-                <div id="export-status" style="display:none">
-                    <h6>Exporting...</h6>
-                    <div class="progress-bar">
-                        <div style="width:20%"></div>
+                    <br/>
+
+                    <div id="export-status" style="display:none">
+                        <h6>Exporting...</h6>
+                        <div class="progress-bar">
+                            <div style="width:20%"></div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="sidebar shadow" id="right-side">
+        		<div id="image-canvas-div">
+    	    		<canvas id="image-canvas"></canvas>
+    	    	</div>
+    	    	<div id="tri-canvas-div">
+    	    		<svg xmlns="http://www.w3.org/2000/svg" id="tri-canvas">
+                        <rect x="0" y="0" width="0" height="0" opacity="0" id="tri-canvas-bg"/>         
+                    </svg>
+    	    	</div>
+
+                <div id="zoom-bar">
+                    <div onclick="zoomIn()">
+                        <span>
+                            <i class="material-icons">zoom_in</i>
+                        </span>
+                    </div>
+                    <div onclick="zoomOut()">
+                        <span>
+                            <i class="material-icons">zoom_out</i>
+                        </span>
+                    </div>
+                </div>
+
+    	    </div>
+
+            <div class="sidebar" id="right-side">
                 <div class="flex">
                     <h4>Show vertices</h4>
                     <input type="checkbox" checked id="show-verts" onchange="changeShowVerts()">
@@ -92,38 +115,8 @@
                 <input type="text" value="10000" id="num-verts" onchange="changeNumVerts()">
             </div>
 
+        </div>
 
-
-
-    		<!--
-    		zoom buttons
-    		pan...
-    		-->
-
-
-
-    		<div id="image-canvas-div">
-	    		<canvas id="image-canvas"></canvas>
-	    	</div>
-	    	<div id="tri-canvas-div">
-	    		<svg xmlns="http://www.w3.org/2000/svg" id="tri-canvas">
-                    <rect x="0" y="0" width="0" height="0" opacity="0" id="tri-canvas-bg"/>         
-                </svg>
-	    	</div>
-
-            <div id="zoom-bar">
-                <div onclick="zoomIn()">
-                    <span>
-                        <i class="material-icons">zoom_in</i>
-                    </span>
-                </div>
-                <div onclick="zoomOut()">
-                    <span>
-                        <i class="material-icons">zoom_out</i>
-                    </span>
-                </div>
-            </div>
-	    </div>
     </div>
 
     <canvas id="canvas" style="display:none"></canvas>
