@@ -108,11 +108,14 @@
             <div class="sidebar" id="right-side">
                 <div class="flex">
                     <h4>Show vertices</h4>
-                    <input type="checkbox" checked id="show-verts" onchange="changeShowVerts()">
+                    <input type="checkbox" checked id="show-verts" onchange="changeShowVerts()" style="flex:none">
                 </div>
 
                 <h4>Number of vertices</h4>
-                <input type="text" value="10000" id="num-verts" onchange="changeNumVerts()">
+                <input type="text" value="10000" id="num-verts-input" onchange="changeNumVerts()">
+
+                <h4>Vertex color</h4>
+                <input type="color" id="vert-color-input" onchange="changeVertColor()" value="#ff0000" style="width:calc(100% - 5px)">
             </div>
 
         </div>

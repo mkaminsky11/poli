@@ -9,6 +9,10 @@
 	margin: 2px;
 }
 
+.btn-danger{
+	background-color: #F44336;
+}
+
 .select{
 	width: calc(100% - 0px);
     padding: 2px;

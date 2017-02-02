@@ -4,7 +4,8 @@ var nativeImage = require('electron').nativeImage;
 var ops = {
 	showVerts: true,
 	numVerts: 10000,
-	selectedVerts: []
+	selectedVerts: [],
+	vertColor: "#ff0000"
 };
 
 function changeShowVerts(){
@@ -18,7 +19,7 @@ function changeShowVerts(){
 }
 
 function changeNumVerts(){
-	var val = parseInt($("#num-verts").val());
+	var val = parseInt($("#num-verts-input").val());
 	if(!isNaN(val)){
 		ops.numVerts = val;
 		resetAll();
@@ -28,6 +29,12 @@ function changeNumVerts(){
 		plotTri(_t,_v);
 		plotVerts(_v);
 	}
+}
+
+function changeVertColor(){
+	var val = $("#vert-color-input").val();
+	ops.vertColor = val;
+	$(triCan).find("circle").attr("fill", ops.vertColor);
 }
 
 var triCanCopy;

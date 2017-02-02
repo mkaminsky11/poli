@@ -73,4 +73,6 @@
 	display: flex;
 	position: relative;
 	flex-direction: column;
+	background-color: #313131;
+    color: white;
 }
