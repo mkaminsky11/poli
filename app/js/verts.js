@@ -129,7 +129,7 @@ function toggleSelected(vert){
 	else{
 		ops.selectedVerts = ops.selectedVerts.slice(0,i).concat(ops.selectedVerts.slice(i+1));
 		vert.setAttributeNS(null,'data-selected','false');
-		vert.setAttributeNS(null,'fill','red');
+		vert.setAttributeNS(null,'fill',ops.vertColor);
 	}
 }
 
@@ -149,7 +149,7 @@ function selectedOff(vert){
 		ops.selectedVerts = ops.selectedVerts.slice(0,i).concat(ops.selectedVerts.slice(i+1));
 		updateSelectedDisplay();
 		vert.setAttributeNS(null,'data-selected','false');
-		vert.setAttributeNS(null,'fill','red');
+		vert.setAttributeNS(null,'fill',ops.vertColor);
 	}
 }
 

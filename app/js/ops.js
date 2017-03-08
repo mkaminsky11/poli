@@ -4,6 +4,7 @@ var nativeImage = require('electron').nativeImage;
 var ops = {
 	showVerts: true,
 	numVerts: 10000,
+	sizeVerts: 1,
 	selectedVerts: [],
 	vertColor: "#ff0000"
 };
@@ -18,9 +19,21 @@ function changeShowVerts(){
 	}
 }
 
+$("#num-verts-input").keypress(function(e){
+	if(e.which === 13){
+		changeNumVerts();
+	}
+});
+
+$("#size-verts-input").keypress(function(e){
+	if(e.which === 13){
+		changeSizeVerts();
+	}
+});
+
 function changeNumVerts(){
 	var val = parseInt($("#num-verts-input").val());
-	if(!isNaN(val)){
+	if(!isNaN(val) && val >= 0){
 		ops.numVerts = val;
 		resetAll();
 		_v = genVerts(ops.numVerts);
@@ -28,6 +41,14 @@ function changeNumVerts(){
 		rescale(true);
 		plotTri(_t,_v);
 		plotVerts(_v);
+	}
+}
+
+function changeSizeVerts(){
+	var val = parseFloat($("#size-verts-input").val());
+	if(!isNaN(val) && val > 0){
+		ops.sizeVerts = val;
+		$(triCan).find("circle").attr("r", ops.sizeVerts);
 	}
 }
 

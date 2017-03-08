@@ -16,6 +16,44 @@
   <body>
   <!--
   -->
+    <div id="help" style="display:none">
+        <span onclick="$('#help').toggle()" style="right: 0px; top: 0px">
+            <i class="material-icons">close</i>
+        </span>
+        <h4>
+            <span>
+                <i class="material-icons">add</i>
+            </span>
+            Load an image</h4>
+        <h4>
+            <span>
+                <i class="material-icons">file_download</i>
+            </span>
+            Open the export panel</h4>
+        <h4>
+            <span>
+                <i class="material-icons">zoom_in</i>
+            </span>
+            Zoom In</h4>
+        <h4>
+            <span>
+                <i class="material-icons">zoom_out</i>
+            </span>
+            Zoom Out</h4>
+
+        <h4><b>DESELECT</b>: deselect the currently selected vertices</h4>
+
+        <h4><b>DELETE SELECTED</b>: remove all of the currently selected vertices</h4>
+
+        <h4><b>DELETE ALL</b>: delete all of the vertices currently created</h4>
+
+        <h4><b>SHOW VERTICES</b>: toggle whether or not to show vertices</h4>
+
+        <h4><b>NUMBER OF VERTICES</b>: the number of vertices determines the number of triangles</h4>
+        
+        <h4><b>VERTEX COLOR</b>: the color of the vertices</h4>
+    </div>
+
     <div id="main">
 
     	<div id="controls">
@@ -34,7 +72,7 @@
             <div style="flex:1"></div>
 
             <div id="nav-right" class="nav">
-                <div>
+                <div onclick="$('#help').toggle()">
                     <span><i class="material-icons">help</i></span>
                 </div>
             </div>
@@ -42,11 +80,11 @@
     	</div>
 
         <div id="verts">
-            <h6 id="num-verts"><span>0</span> vertexes selected</h6>
+            <h6 id="num-verts"><span>0</span> vertices selected</h6>
             <div style="flex:1"></div>
             <button class="btn" onclick="deselectAll()">DESELECT</button>
-            <button class="btn" onclick="removeSelectedVerts()">REMOVE SELECTED</button>
-            <button class="btn btn-danger" onclick="removeAllVerts()">CLEAR ALL</button>
+            <button class="btn" onclick="removeSelectedVerts()">DELETE SELECTED</button>
+            <button class="btn btn-danger" onclick="removeAllVerts()">DELETE ALL</button>
         </div>
 
         <div id="contents">
@@ -112,10 +150,13 @@
                 </div>
 
                 <h4>Number of vertices</h4>
-                <input type="text" value="10000" id="num-verts-input" onchange="changeNumVerts()">
+                <input type="text" value="10000" id="num-verts-input">
 
                 <h4>Vertex color</h4>
                 <input type="color" id="vert-color-input" onchange="changeVertColor()" value="#ff0000" style="width:calc(100% - 5px)">
+
+                <h4>Vertex size</h4>
+                <input type="text" value="1" id="size-verts-input">
             </div>
 
         </div>

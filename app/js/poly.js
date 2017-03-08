@@ -150,7 +150,7 @@ function plotVerts(v){
 		circle.setAttributeNS(null,'cx',pt[0]);
 		circle.setAttributeNS(null,'cy',pt[1]);
 		circle.setAttributeNS(null,'r',1);
-		circle.setAttributeNS(null,'fill','red');
+		circle.setAttributeNS(null,'fill',ops.vertColor);
 		circle.setAttributeNS(null,'stroke-width',0);
 		triCan.appendChild(circle);
 		circle.addEventListener("click", function(){
